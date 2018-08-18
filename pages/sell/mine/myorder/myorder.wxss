@@ -1,0 +1,28 @@
+.order-main{
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+}
+.order-item{
+  margin-top: 10rpx;
+}
+
+.ibox-item{
+  font-size: 28rpx;
+}
+
+.order-status{
+  margin-right: 1em;
+  color: #EE2C2C;
+}
+
+.order-action{
+  display: inline-block;
+  font-weight: 400;
+  border: 1px solid #f2f2f2;
+  height: 30rpx;
+  line-height: 30rpx;
+  padding: .3em 1em;
+  position: relative;
+  margin-top: 7rpx;
+}

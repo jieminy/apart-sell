@@ -1,0 +1,49 @@
+{
+  "pages":[
+    "pages/sell/index",
+    "pages/sell/home/detail/detail",
+    "pages/sell/cart/confirm/confirm",
+    "pages/sell/mine/address/address",
+    "pages/sell/mine/address/choose/choose",
+    "pages/sell/mine/myorder/myorder",
+    "pages/sell/cart/cart",
+    "pages/sell/mine/mine",
+    "pages/logs/logs",
+    "pages/sell/mine/custom/custom",
+    "pages/sell/mine/myorder/detail/detail",
+    "pages/sell/mine/address/manage/manage"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "公寓鲜",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/sell/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homeSelect.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/sell/cart/cart",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/cartSelect.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/sell/mine/mine",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mineSelect.png",
+        "text": "我的"
+      }
+    ]
+  }
+
+}

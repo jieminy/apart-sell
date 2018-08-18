@@ -1,0 +1,91 @@
+.confirm-scroll {
+  overflow: hidden;
+}
+
+/* 收货人地址 */
+.address-infos {
+  padding: 0 1em;
+  border-top: 0.5em solid #fafafa;
+}
+.address-text-wrap {
+  padding: 0.5em 0;
+}
+.address-text {
+  font-size: 28rpx;
+}
+.address-choose {
+  flex-direction: row;
+  height: 3em;
+}
+.address-choose .image {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.hot-center {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.hot-center button {
+  width: 8em;
+  background-color: #fff;
+  font-size: 24rpx;
+  margin: 1em auto;
+}
+
+
+.cart-tab-wrp {
+  height: 100rpx;
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  color: black;
+  border-top: 1px solid #f2f2f2;
+}
+
+.cart-item-total {
+  padding-left: 30rpx;
+  line-height: 100rpx;
+}
+
+.cart-item-icon-wrp {
+  display: inline-block;
+  padding: 10rpx 15rpx;
+  top: -4rpx;
+}
+
+.cart-item-icon {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.cart-item-total-price {
+  font-size: 36rpx;
+  color: #ed7e05;
+}
+
+.cart-tab-item-btn {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+}
+
+.button{
+  font-size: 32rpx;
+  padding: 24rpx;
+  display: inline-block;
+  margin: 0 1em 10rpx 0;
+  line-height: 20rpx;
+}
+
+.button.active{
+  background: #f5a22d;
+  color: #fff;
+}

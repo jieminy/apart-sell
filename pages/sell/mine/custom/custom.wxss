@@ -1,0 +1,14 @@
+.phone{
+  border-block-end: black
+}
+
+.image{
+  height: 750rpx;
+  width: 750rpx;
+}
+
+.custom{
+  text-align:center;
+  /* text-decoration: underline; */
+  color: red;
+}

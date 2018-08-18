@@ -1,0 +1,97 @@
+ <wxs src="../../utils/number.extend.wxs" module="number"> </wxs> 
+<view class="layout-column layout-fill">
+
+  <view style='text-align: center;height: 34px;' bindtap='getLocation'>
+    <view style='display:inline-block;font-size:0.8rem; color:red;margin-right:.3rem;'>次日达</view>
+    <view style='display:inline-block;vertical-align:middle;'>{{address}}</view>
+  </view>
+
+  <scroll-view scroll-x class="scroll-menu">
+    <view class="scroll-menu-item {{menuIndex == idx ? 'selected' : ''}}" wx:for="{{menus}}" wx:key="{{menus.categoryId}}" wx:for-item="menu" wx:for-index="idx">
+      <view class="menu-item" bindtap='selectMenu' data-categoryid='{{menu.categoryId}}' data-idx='{{idx}}'>
+        <text class="menu-item-text">{{menu.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <scroll-view class="scroll-product flex" scroll-y bindscrolltolower="lower">
+
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{advertisements}}" wx:key="advId" wx:for-item="advertisement">
+        <swiper-item>
+          <image class="image" src='{{advertisement.pic}}'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <block wx:for="{{smallCategories}}" wx:key="id" wx:for-item="smallCategory">
+      <view>
+        <view id="{{smallCategory.categoryId}}" class="dish-category-title">{{smallCategory.name}}</view>
+        <block wx:for="{{smallCategory.productInfos}}" wx:key="id" wx:for-item="product">
+          <view class="pro-item">
+            <view class="pro-item-wrp layout-row">
+              <view class="pro-item-pic" bindtap='detail' data-proId='{{product.productId}}'>
+                <!-- <view class="discount">
+                  <text>6.5折</text>
+                </view> -->
+
+                <view class="discount-pic">
+                  <image src="{{product.activity.icon}}" />
+                </view>
+
+                <image src="{{product.productIcon}}" />
+              </view>
+
+              <view class="pro-item-info flex" data-proId='{{product.productId}}'>
+                <view class="pro-item-name" bindtap='detail' data-proId='{{product.productId}}'>
+                  <text>{{product.productName}} {{product.weight}}</text>
+                </view>
+                <view class="pro-item-sales" bindtap='detail' data-proId='{{product.productId}}'>
+                  <text>{{product.productDescription}} </text>
+                </view>
+                <view class="pro-item-money layout-row">
+                  <block wx:if="{{product.activity.type == 1}}" >
+                    <view class='flex'>
+                       <text>¥{{number.mul(product.productPrice,product.activity.discount)}}</text> 
+                       <text  style="text-decoration:line-through; color:#ccc;font-size:.8em"> ¥{{product.productPrice}}</text> 
+                    </view>
+                  </block>
+                  <block  wx:if="{{product.activity.type == -1}}" >
+                    <view class='flex'>
+                      <text>¥{{product.productPrice}}</text>
+                    </view>
+                  </block>
+
+                  <view class="pro-item-count">
+                    <view class="pro-item-tab">
+                      <view hidden="{{product.count == 0}}" class="pro-item-count-minus" data-id="{{product.productId}}" 
+                            data-sctid="{{smallCategory.categoryId}}" data-ctid="{{smallCategory.parentId}}" bindtap="minusCount">
+                        <image class="image addminus" src="resources/pic/countMinus.png" />
+                      </view>
+                    </view>
+                    <view class="pro-item-count-text pro-item-tab">
+                      <text hidden="{{product.count == 0}}">{{product.count}}</text>
+                    </view>
+                    <view class="pro-item-count-plus" data-id="{{product.productId}}" data-sctid="{{smallCategory.categoryId}}" data-ctid="{{smallCategory.parentId}}" bindtap="addCount">
+                      <image hidden="{{product.count == 0}}" class="image addminus" src="resources/pic/countSelAdd.png" />
+                      <image hidden="{{product.count != 0}}" class="image cart" src="resources/pic/add-cart.png" />
+                    </view>
+                  </view>
+
+                </view>
+              </view>
+
+            </view>
+          </view>
+        </block>
+
+      </view>
+
+    </block>
+
+    <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+  </scroll-view>
+</view>

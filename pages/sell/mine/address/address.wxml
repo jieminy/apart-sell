@@ -1,0 +1,41 @@
+<view class="layout-fill layout-column address-wrap">
+
+  <scroll-view scroll-y class="address-wrap-scroll flex">
+    <block wx:for="{{receivers}}" wx:for-index="idx" wx:key="recId" wx:for-item="receiver">
+
+      <view class="address-item">
+        <view bindtap='chooseCurrentReceiver' data-idx='{{idx}}'>
+          <view class="address-userinfo layout-row">
+            <view style="min-width:3em;">
+              <text>{{receiver.name}}</text>
+            </view>
+            <view>
+              <text>{{receiver.phone}}</text>
+            </view>
+          </view>
+          <view class="address-text">
+            <text>{{receiver.address}}</text>
+          </view>
+        </view>
+
+        <view class="address-actions layout-row">
+          <view class="flex"></view>
+          <view class="layout-row">
+            <view class="address-action" bindtap='edit' data-recid='{{receiver.recId}}'>
+                <icon type="info" size="16" />
+                <text>编辑</text>
+            </view>
+            <view class="address-action text-danger" bindtap='deleteRec' data-recid="{{receiver.recId}}">
+                <icon type="cancel" size="16" color="red" />
+                <text>删除</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </block>
+    
+    <button bindtap='addAddress' class="new-address">+ 新增收获地址</button>
+
+  </scroll-view>
+</view>

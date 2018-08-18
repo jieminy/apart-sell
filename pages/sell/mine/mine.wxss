@@ -1,0 +1,51 @@
+/**index.wxss**/
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 30%;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.mine-wrap {
+  width: 100%;
+  padding: 1em 1em 0;
+}
+
+.mine-menu-item {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 30rpx;
+  height: 3em;
+  line-height: 85rpx;
+  padding: 0 1em;
+}
+
+.mine-item-text {
+  display: block;
+  flex: 1;
+  margin-left: 10rpx;
+  font-size: 32rpx;
+}
+
+.mine-item-img {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 22rpx;
+}

@@ -1,0 +1,113 @@
+<view class="layout-fill layout-column">
+  <scroll-view scroll-y class="confirm-scroll flex">
+
+    <view class="ibox">
+      <view class="ibox-title layout-row">
+        <view class='flex'>
+          <text>商品信息</text>
+        </view>
+
+        <view>
+          <text hidden="{{total.count == 0}}">共{{total.count}}件</text>
+        </view>
+      </view>
+      <view class="ibox-content">
+        <scroll-view scroll-x class="">
+          <block wx:for="{{cart}}" wx:key="productId" wx:for-item="product">
+            <view class="cart-item-icon-wrp " wx:if="{{product.count!=0}}">
+              <view class="cart-item-icon ">
+                <image class="image" src="{{product.productIcon}}" />
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+
+    <view class="address-infos">
+      <view class="address-text-wrap" bindtap='navitoAddress'>
+
+        <view class="address-text layout-row">
+          <image src='/images/address.png' style='padding:15px 15px; width:42rpx;height:42rpx;'></image>
+
+          <block wx:if='{{receiver==null}}'>
+            <view class="flex" style='padding:10px 10px;' >请选择收获地址</view>
+          </block>
+
+          <block wx:if='{{receiver!=null}}'>
+            <view class="flex" style='padding:10px 10px;'>收货地址：{{receiver.name}} {{receiver.phone}} ({{receiver.address}} {{receiver.detail}})</view>
+          </block>
+
+          <image src='/images/arrowright.png' style='padding:15px 15px;width:35rpx;height:35rpx;'></image>
+        </view>
+
+      </view>
+    </view>
+
+    <view class="ibox pay-infos">
+      <view class="ibox-content">
+        <view class='ibox-item layout-row'>
+          <button class="button {{isSelfPick == false ? 'active' : ''}}" bindtap='distribute'>送货上门</button>
+          <button class="button {{isSelfPick == true ? 'active' : ''}}" bindtap='selfpick'>到店自提</button>
+        </view>
+
+        <view hidden="{{isSelfPick == true}}">
+          <view class="ibox-item layout-row">
+            <text class="flex" style="color:black;" >配送时间</text>
+            <view class='layout-row'>
+              <picker mode="multiSelector" range="{{rangeData}}" value="{{rangeIdx}}" bindchange="bindTimeChange">
+                <view class="picker">
+                  <text style='color:red;'>[次日]</text>
+                  <text style="color:black;">{{rangeData[1][rangeIdx[1]]}}</text>
+                  <image src='/images/arrowright.png' style='width:26rpx;height:24rpx;'></image>
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="ibox-item layout-row" hidden='{{isSelfPick}}'>
+            <text class="flex">运费</text>
+            <text>￥{{freight}}</text>
+          </view>
+        </view>
+
+        <view hidden="{{isSelfPick == false}}">
+          <view class="ibox-item layout-row">
+            <text class="flex">自提时间</text>
+            <view class='layout-row'>
+              <text style='color:red;'>[次日]</text>
+              <text>10:00-21:30</text>
+            </view>
+          </view>
+          <view class="ibox-item layout-row">
+            <text class="flex">自提地点</text>
+            <text>天鸿公寓 32栋2楼 超市内生鲜区</text>
+          </view>
+        </view>
+
+
+        <view class="ibox-item layout-row">
+          <text class="flex">商品总价</text>
+          <text>￥{{total.money}}</text>
+        </view>
+
+
+        <view class="ibox-item layout-row">
+          <text class="flex">合计</text>
+          <text style='color:#FF0066;font-size:1.2em;'>￥{{amount}}</text>
+        </view>
+      </view>
+
+    </view>
+
+  </scroll-view>
+
+  <view class="cart-tab-wrp layout-row">
+    <view class="cart-item-total layout-row" style='margin-right:1em;'>
+      <text>付款</text>
+      <text class="cart-item-total-price">￥{{amount}}</text>
+    </view>
+    <view class='flex'>
+      <navigator url="/pages/sell/index" class="cart-tab-item-btn bg-orange" hover-class="navigator-hover" bindtap='createOrder'>去支付</navigator>
+    </view>
+  </view>
+</view>

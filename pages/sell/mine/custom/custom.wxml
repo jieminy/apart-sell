@@ -1,0 +1,6 @@
+<view style='text-align:center;'>
+  <image src='{{imagList[0]}}' class='image' bindtap='previewImage'></image>
+</view>
+<view class='custom' bindtap='copy'>
+  <text>微信号码：{{wechatNumber}}</text>
+</view>
